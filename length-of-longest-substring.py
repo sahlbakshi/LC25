@@ -10,5 +10,5 @@ class Solution:
                 l += 1
             hash_set.add(s[r])
             print(hash_set)
-            res = max(res, r - l + 1)
+            res = max(res, len(hash_set)) # or u can do (r - l + 1)
         return res
