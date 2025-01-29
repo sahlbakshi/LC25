@@ -2,8 +2,8 @@ import heapq
 
 class MedianFinder:
     def __init__(self):
-        self.min_heap = []
-        self.max_heap = []
+        self.min_heap = [] # Large heap
+        self.max_heap = [] # Small heap
 
     def addNum(self, num: int) -> None:
         if not self.max_heap or num <= -self.max_heap[0]:
