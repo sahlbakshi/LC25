@@ -11,19 +11,19 @@ class Solution(object):
         :rtype: int
         """
 
-        largest_diameter = [0]
-
+        diameter = [0]
+        
         def dfs(node):
             if not node:
                 return 0
             
-            left = dfs(node.left)
-            right = dfs(node.right)
-            diameter = left + right
+            left_height = dfs(node.left)
+            right_height = dfs(node.right)
 
-            largest_diameter[0] = max(largest_diameter[0], diameter)
-            
-            return 1 + max(left, right)
+            path = left_height + right_height
+            diameter[0] = max(path, diameter[0])
 
+            return 1 + max(left_height, right_height)
+        
         dfs(root)
-        return largest_diameter[0]
+        return diameter[0]
